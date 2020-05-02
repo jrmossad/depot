@@ -8,6 +8,10 @@
                             'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application',
                                'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript">
+      I18n.defaultLocale = "<%= I18n.default_locale %>";
+      I18n.locale        = "<%= I18n.locale %>";
+    </script>
   </head>
 
   <body>
@@ -21,10 +25,10 @@
           <%= render_if @cart && @cart.line_items.any?, @cart %>
         </div>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/questions">Questions</a></li>
-          <li><a href="/news">News</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="/"><%= t('.home') %></a></li>
+          <li><a href="/questions"><%= t('.questions') %></a></li>
+          <li><a href="/news"><%= t('.news') %></a></li>
+          <li><a href="/contact"><%= t('.contact') %></a></li>
         </ul>
         <% if session[:user_id] %>
           <nav class="logged_in_nav">
@@ -37,9 +41,9 @@
           </nav>
         <% end %>
       </nav>
-			<main class='<%= controller.controller_name %>'>
+      <main class='<%= controller.controller_name %>'>
         <%= yield %>
       </main>
-    </section>
+    </div>
   </body>
 </html>
