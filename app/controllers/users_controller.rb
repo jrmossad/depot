@@ -56,9 +56,13 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: '"User #{@user.name} deleted"' }
       format.json { head :no_content }
     end
+  end
+
+  rescue_from 'User::Error' do |exception|
+    redirect_to users_url, notice: exception.message
   end
 
   private
@@ -67,7 +71,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :password, :password_confirmation)
     end
