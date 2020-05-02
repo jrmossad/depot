@@ -13,14 +13,15 @@
     white-space: nowrap;
   }
   td.quantity::after {
-    content: " x";
+    content: ' x';
   }
   td.price {
     font-weight: bold;
     text-align: right;
   }
   tfoot {
-    th, td.price {
+    th,
+    td.price {
       font-weight: bold;
       padding-top: 1em;
     }
@@ -31,7 +32,7 @@
       border-top: solid thin;
     }
   }
-  input[type="submit"] {
+  input[type='submit'] {
     background-color: #881;
     border-radius: 0.354em;
     border: solid thin #441;
@@ -39,7 +40,7 @@
     font-size: 1em;
     padding: 0.354em 1em;
   }
-  input[type="submit"]:hover {
+  input[type='submit']:hover {
     background-color: #992;
   }
 }
