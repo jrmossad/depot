@@ -16,11 +16,11 @@
   </table>
 
   <div class="actions">
-  <%= button_to t('.empty'), cart,
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %>
-  <%= button_to t('.checkout'), new_order_path(locale: I18n.locale),
-                method: :get,
-                class: "checkout"%>
+    <%= button_to t('.empty'), cart,
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+    <%= button_to t('.checkout'), new_order_path(locale: I18n.locale),
+                  method: :get,
+                  class: "checkout"%>
   </div>
 </article>
